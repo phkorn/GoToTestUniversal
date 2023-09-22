@@ -59,7 +59,7 @@ export async function activate(context: vscode.ExtensionContext) {
 		const filePath = path.parse(currentFileLocation!);
 		channel.appendLine(`current path: ${filePath.dir}`);
 
-		const targetFolders = workspaceFolders?.filter((folder) => filePath.dir.includes(folder))
+		const targetFolders = workspaceFolders?.filter((folder) => filePath.dir.includes(folder));
 		channel.appendLine(`workspace folders: ${workspaceFolders}`);
 		channel.appendLine(`workspace targetFolders: ${targetFolders}`);
 
@@ -88,13 +88,13 @@ export async function activate(context: vscode.ExtensionContext) {
 
 			const parentFolderMatchesMulti = await Promise.all(parentFoldersSearch.map(path => findFiles(`${config.testFolder}/**/${path}/*${fileExtensionGlob}`, targetFolder)));
 			const parentFolderMatches = parentFolderMatchesMulti.flat();
-			targetTestFiles.push(...exactNameGlobMatches)
-			targetTestFiles.push(...parentFolderMatches)
+			targetTestFiles.push(...exactNameGlobMatches);
+			targetTestFiles.push(...parentFolderMatches);
 		}
 
 		targetTestFiles.map(file => channel.appendLine(`targetTestFile: ${file}`));
 		if (targetTestFiles.length > 0) {
-			await openPeekLocations(vscode.Uri.file(currentFileLocation!), new vscode.Position(0, 0), targetTestFiles)
+			await openPeekLocations(vscode.Uri.file(currentFileLocation!), new vscode.Position(0, 0), targetTestFiles);
 		} else {
 			vscode.window.showInformationMessage('No test files found');
 		}
