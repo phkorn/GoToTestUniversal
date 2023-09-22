@@ -1,0 +1,101 @@
+{
+  "name": "gototestuniversal",
+  "displayName": "GoToTestUniversal",
+  "description": "Switch to test files based on glob patters via the context menu of the editor",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.82.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "author": {
+    "name": "Philipp Korn"
+  },
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#1B00C8",
+    "theme": "dark"
+  },
+  "pricing": "Free",
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/vscode-wordcount.git"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "gototestuniversal.gototest",
+        "title": "Go to Test"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "resourceSet && !inOutput",
+          "command": "gototestuniversal.gototest",
+          "group": "navigation@20"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "GoToTestUniversal",
+      "properties": {
+        "GoToTestUniversal.config": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "sourceFolder": {
+                "type": "string",
+                "description": "Name of the source folder, e.g. src (do not use slashes)"
+              },
+              "testFolder": {
+                "type": "string",
+                "description": "Name of the test folder, e.g. test (do not use slashes)"
+              },
+              "includeParentFolderLevel": {
+                "type": "number",
+                "description": "Name of the test folder, e.g. test (do not use slashes)",
+                "default": 0
+              },
+              "fileExtensions": {
+                "type": "array",
+                "description": "file endings e.g. scala (do not use dot)",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.82.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "@vscode/test-electron": "^2.3.4",
+    "eslint": "^8.47.0",
+    "glob": "^10.3.3",
+    "mocha": "^10.2.0",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "node-glob": "^1.2.0"
+  }
+}
