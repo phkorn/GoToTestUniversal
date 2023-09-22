@@ -2,6 +2,8 @@
 
 GoToUniversal enables users to switch to test files based on glob patters via the context menu of the editor.
 
+[Marketplace](https://marketplace.visualstudio.com/items?itemName=philippkorn.gototestuniversal)
+
 ## Features
 
 * Specify multiple file extensions
