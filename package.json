@@ -2,7 +2,7 @@
   "name": "gototestuniversal",
   "displayName": "GoToTestUniversal",
   "description": "Switch to test files based on glob patters via the context menu of the editor",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.82.0"
   },
@@ -23,7 +23,7 @@
   "license": "SEE LICENSE IN LICENSE.txt",
   "repository": {
     "type": "git",
-    "url": "https://github.com/microsoft/vscode-wordcount.git"
+    "url": "https://github.com/phkorn/GoToTestUniversal.git"
   },
   "publisher": "philippkorn",
   "contributes": {

@@ -36,6 +36,9 @@ Example:
 
 
 ## Release Notes
+### 0.0.2
+
+fix git repo
 ### 0.0.1
 
 alpha release, expect some bugs
